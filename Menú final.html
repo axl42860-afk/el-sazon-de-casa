@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Sazón de Casa</title>
+    <style>
+        .badge {
+            background-color: var(--verde-suave);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        header p {
+            margin: 5px 0 0;
+            font-style: italic;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        :root {
+            --cafe-tradicional: #7A4A2E;
+            --beige-fondo: #E8DCCB;
+            --verde-fuerte: #4F7F4A;
+            --verde-suave: #8FAEA7;
+            --blanco-crema: #F7F4EF;
+            --terracota: #B06A3B;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--beige-fondo);
+            color: #444;
+        }
+
+        header {
+            background-color: var(--cafe-tradicional);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-bottom: 5px solid var(--terracota);
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Sistema de Navegación */
+        .page {
+            display: none;
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 0 15px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* DISEÑO EXACTO DE LA PRESENTACIÓN */
+        .main-card {
+            background-color: var(--blanco-crema);
+            padding: 40px 30px;
+            border-radius: 4px; /* Bordes menos redondeados para el estilo de la imagen */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .main-title {
+            color: var(--cafe-tradicional);
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .main-subtitle {
+            color: var(--verde-fuerte);
+            text-align: center;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 30px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Estilo de títulos con barra lateral verde */
+        .section-header {
+            color: var(--terracota);
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-left: 5px solid var(--verde-fuerte);
+            padding-left: 15px;
+            margin: 30px 0 15px 0;
+            line-height: 1.2;
+        }
+
+        .text-body {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* Recuadro punteado (¿Por qué elegirnos?) */
+        .info-box {
+            background-color: #f0f4f0;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px dashed var(--verde-suave);
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .info-box strong {
+            color: #333;
+            font-style: italic;
+        }
+
+        .footer-callout {
+            color: var(--verde-fuerte);
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 40px 0 20px 0;
+        }
+
+        /* Botón estilo píldora verde */
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn-green-pill {
+            background-color: var(--verde-fuerte);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+
+        .btn-green-pill:hover {
+            background-color: #3d6339;
+        }
+
+        /* ESTILOS DEL MENÚ */
+        .menu-card {
+            background: var(--blanco-crema);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 6px solid var(--verde-fuerte);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--cafe-tradicional);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1 style="margin:0; font-size: 1.5rem;">EL SAZÓN DE CASA</h1>
+    <p>"Como en casa, cuidamos tu salud"</p>
+</header>
+
+<div id="pantalla-presentacion" class="page active">
+    <div class="main-card">
+        <h2 class="main-title">Bienvenido a El Sazón de Casa</h2>
+        <span class="main-subtitle">Tradición, Salud y el Gusto de lo Nuestro</span>
+
+        <div class="section-header">Nuestra Misión: Cuidar de Ti a través del Sabor</div>
+        <p class="text-body">Hoy en día, sabemos que muchos adultos mayores se enfrentan al desafío de encontrar opciones de comida que sean verdaderamente saludables y adecuadas para su etapa de vida. Lamentablemente, la comida que se encuentra habitualmente en restaurantes o ya preparada suele tener exceso de grasa, azúcar o sal. Esto puede hacer que se sientan mal o que se compliquen problemas de salud como la presión alta o la diabetes.</p>
+        <p class="text-body"><strong>“El Sazón de Casa”</strong> nace como respuesta a esta situación. Somos un restaurante que se especializa en preparar y vender comida saludable, pero con una misión muy especial: nuestro proyecto está diseñado pensando principalmente en los adultos mayores. Buscamos darte una solución a ese problema ofreciéndote comida nutritiva, equilibrada y segura. De esta manera, te ayudamos a comer rico sin dañar tu salud, contribuyendo a que tengas una mejor calidad de vida.</p>
+
+        <div class="section-header">Propuesta Gastronómica</div>
+        <p class="text-body">Nuestra idea central es ofrecerte platillos que sean nutritivos y equilibrados. Esto significa que contienen los ingredientes necesarios para alimentarte bien, pero que al mismo tiempo sean bajos en elementos que pueden ser perjudiciales, como la grasa, la sal y el azúcar.</p>
+        <p class="text-body">Todo se prepara con ingredientes naturales. Además, nos aseguramos de que los alimentos sean fáciles de digerir, porque sabemos que a veces la comida pesada no les cae bien a las personas mayores. Pero eso no significa que se pierda el sabor tradicional; al contrario, buscamos que cada platillo tenga ese inconfundible gustito a comida casera que te transporta a tu hogar.</p>
+
+        <div class="info-box">
+            <p><strong>¿Por qué elegirnos?</strong> Ofrecemos tranquilidad en un ambiente acogedor, confianza con ingredientes seleccionados y la tradición de nuestra cocina.</p>
+        </div>
+
+        <div class="section-header">Un Espacio para Ti y Tus Seres Queridos</div>
+        <p class="text-body">Nuestro restaurante está dirigido a personas de 60 años en adelante. Aquí encontrarás ese servicio cálido y amable que te hará sentir bien. También tomamos en cuenta a tus familiares, ofreciendo un espacio que satisface las expectativas de ambos.</p>
+        
+        <p class="footer-callout">
+            ¡Pasa a la siguiente sección para descubrir nuestro menú diseñado pensando en ti!
+        </p>
+
+        <div class="btn-container">
+            <button class="btn-green-pill" onclick="mostrarMenu()">Ver Menú</button>
+        </div>
+    </div>
+</div>
+
+<div id="pantalla-menu" class="page">
+    <h2 style="text-align: center; color: var(--cafe-tradicional);">Nuestra Carta Saludable</h2>
+    
+    <div class="menu-card">
+        <strong style="font-size: 1.2rem; color: var(--cafe-tradicional);">Horchata con Manía.</strong>
+        <p>Bebida tradicional a base de arroz, manía natural y canela. Endulzada con Splenda para un sabor suave y saludable.</p>
+        <span class="badge">Baja en Azúcar</span>
+    </div>
+
+    <div class="menu-card">
+        <strong style="font-size: 1.2rem; color: var(--cafe-tradicional);">Refresco de Jamaica con piña.</strong>
+        <p>Combinación natural y refrescante de flor de jamaica con trocitos de piña. 100% natural, sin químicos ni colorantes.</p>
+        <span class="badge">100% Natural</span>
+    </div>
+
+    <div class="menu-card">
+        <strong style="font-size: 1.2rem; color: var(--cafe-tradicional);">Pollo en Crema con Vegetales</strong>
+        <p>Suave pollo preparado con crema, güisquil, brócoli y zanahoria. Acompañado de arroz procesado bajo en almidón.</p>
+        <span class="badge">Fácil Digestión</span>
+    </div>
+
+    <div class="menu-card">
+        <strong style="font-size: 1.2rem; color: var(--cafe-tradicional);">Galletas de Avena, Manzana y Canela.</strong>
+        <p>Snack nutritivo de textura suave, sin azúcar añadida. Ideales para disfrutar entre comidas sin descuidar la salud.</p>
+        <span class="badge">Sin Azúcar</span>
+    </div>
+
+    <div class="btn-container" style="margin-top: 30px;">
+        <button class="btn-green-pill" style="background-color: var(--cafe-tradicional);" onclick="mostrarPresentacion()">Volver</button>
+    </div>
+</div>
+
+<footer>
+    &copy; El Sazón de Casa <br>
+    "Marketing 2026"
+</footer>
+
+<script>
+    function mostrarMenu() {
+        document.getElementById('pantalla-presentacion').classList.remove('active');
+        document.getElementById('pantalla-menu').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    function mostrarPresentacion() {
+        document.getElementById('pantalla-menu').classList.remove('active');
+        document.getElementById('pantalla-presentacion').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
