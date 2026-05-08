@@ -3,90 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Digital - Proyecto Marketing</title>
+    <title>El Sazón de Casa</title>
     <style>
-        /* Estilos Generales */
+        :root {
+            --cafe-tradicional: #7A4A2E;
+            --beige-fondo: #E8DCCB;
+            --verde-fuerte: #4F7F4A;
+            --verde-suave: #8FAEA7;
+            --blanco-crema: #F7F4EF;
+            --terracota: #B06A3B;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Color de fondo suave */
-            color: #333;
+            background-color: var(--beige-fondo);
+            color: #444;
         }
 
         header {
-            background-color: #2d3436; /* Color provisional */
+            background-color: var(--cafe-tradicional);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
+            border-bottom: 5px solid var(--terracota);
         }
 
-        .container {
-            padding: 1rem;
-            max-width: 500px;
-            margin: auto;
+        .logo {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            margin-bottom: 10px;
         }
 
-        /* Tarjeta de Producto */
-        .card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
+        .page {
+            display: none;
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 0 15px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .main-card {
+            background-color: var(--blanco-crema);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .main-title { color: var(--cafe-tradicional); text-align: center; font-size: 1.8rem; margin: 0; font-weight: bold; }
+        .main-subtitle { color: var(--verde-fuerte); text-align: center; font-weight: bold; display: block; margin: 10px 0 30px 0; font-size: 1.1rem; }
+
+        .section-header {
+            color: var(--terracota);
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-left: 5px solid var(--verde-fuerte);
+            padding-left: 15px;
+            margin: 30px 0 15px 0;
+            line-height: 1.2;
+        }
+
+        .text-body { font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; text-align: left; }
+
+        .info-box {
+            border: 1.5px dashed var(--verde-suave);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .footer-callout { color: var(--verde-fuerte); text-align: center; font-weight: bold; font-size: 1.1rem; margin: 40px 0 20px 0; }
+
+        .btn-container { text-align: center; }
+        .btn-green-pill {
+            background-color: var(--verde-fuerte);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
         }
 
-        .card-img {
-            width: 100px;
-            height: 100px;
-            background-color: #dfe6e9;
-            object-fit: cover;
+        /* Estilos del Menú con Atributos */
+        .menu-card {
+            background: var(--blanco-crema);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 6px solid var(--verde-fuerte);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .card-content {
-            padding: 1rem;
-        }
+        .menu-card h4 { color: var(--cafe-tradicional); margin: 0 0 10px 0; font-size: 1.3rem; }
+        .benefit-tag { background: #f0f7ef; color: var(--verde-fuerte); padding: 8px; border-radius: 6px; font-size: 0.9rem; font-weight: bold; margin: 10px 0; display: block; border: 1px solid var(--verde-suave); }
+        .attributes { font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
 
-        .card-title {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: #636e72;
-            margin: 0.5rem 0;
-        }
-
-        .card-price {
-            font-weight: bold;
-            color: #e67e22; /* Color de énfasis */
-        }
+        footer { text-align: center; padding: 30px; font-size: 0.9rem; color: var(--cafe-tradicional); }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Nuestra Carta</h1>
-    <p>Proyecto Universitario</p>
+    <img src="logo.png" alt="Logo" class="logo">
+    <h1 style="margin:0; font-size: 1.5rem;">EL SAZÓN DE CASA</h1>
 </header>
 
-<div class="container">
-    <!-- Producto 1 -->
-    <div class="card">
-        <div class="card-img" style="display: flex; justify-content: center; align-items: center; font-size: 0.8rem; color: #999;">Imagen</div>
-        <div class="card-content">
-            <p class="card-title">Producto 1</p>
-            <p class="card-desc">Descripción breve de los ingredientes o características.</p>
-            <p class="card-price">Q 00.00</p>
+<div id="pantalla-presentacion" class="page active">
+    <div class="main-card">
+        <h2 class="main-title">Bienvenido a El Sazón de Casa</h2>
+        <span class="main-subtitle">Tradición, Salud y el Gusto de lo Nuestro</span>
+
+        <div class="section-header">Nuestra Misión: Cuidar de Ti a través del Sabor</div>
+        <p class="text-body">“El Sazón de Casa” nace para ofrecerte comida nutritiva, equilibrada y segura. Te ayudamos a comer rico sin dañar tu salud, contribuyendo a que tengas una mejor calidad de vida.</p>
+
+        <div class="section-header">Propuesta Gastronómica</div>
+        <p class="text-body">Platillos bajos en grasa, sal y azúcar, preparados siempre con ingredientes naturales y fáciles de digerir. Buscamos que cada bocado tenga ese inconfundible gustito a comida casera.</p>
+
+        <div class="info-box">
+            <p><strong>¿Por qué elegirnos?</strong> Ofrecemos tranquilidad en un ambiente acogedor, confianza con ingredientes seleccionados y la tradición de nuestra cocina.</p>
+        </div>
+
+        <div class="section-header">Un Espacio para Ti y Tus Seres Queridos</div>
+        <p class="text-body">Dirigido a personas de 60 años en adelante y a sus familiares que buscan lo mejor para ellos. Aquí encontrarás un servicio cálido y amable que te hará sentir como en casa.</p>
+        
+        <p class="footer-callout">¡Pasa a la siguiente sección para descubrir nuestro menú diseñado pensando en ti!</p>
+
+        <div class="btn-container">
+            <button class="btn-green-pill" onclick="mostrarMenu()">Ver Menú</button>
         </div>
     </div>
-
-    <!-- Los otros 3 productos se repiten aquí -->
 </div>
+
+<div id="pantalla-menu" class="page">
+    <h2 style="text-align: center; color: var(--cafe-tradicional); margin-bottom: 30px;">Nuestra Carta Saludable</h2>
+    
+    <div class="menu-card">
+        <h4>Horchata con Manía (Sin Azúcar)</h4>
+        <p>Bebida tradicional endulzada con Splenda. Ayuda a prevenir o controlar problemas de salud como la diabetes.</p>
+        <span class="benefit-tag">✓ Beneficio: Tranquilidad al consumir algo rico y saludable sin remordimientos.</span>
+        <div class="attributes">Atributos: Ingredientes naturales, baja en azúcar y de fácil digestión.</div>
+    </div>
+
+    <div class="menu-card">
+        <h4>Refresco de Jamaica con Piña</h4>
+        <p>Alternativa 100% natural, sin químicos ni conservadores. Aporta Vitamina C y antioxidantes.</p>
+        <span class="benefit-tag">✓ Beneficio: Hidratación saludable que protege el cuerpo y promueve el bienestar general.</span>
+        <div class="attributes">Atributos: Color llamativo, sabor equilibrado y libre de bebidas artificiales.</div>
+    </div>
+
+    <div class="menu-card">
+        <h4>Pollo en Crema y Vegetales</h4>
+        <p>Servido con arroz sin almidón. Una comida balanceada, nutritiva y reconfortante.</p>
+        <span class="benefit-tag">✓ Beneficio: Mejora la alimentación porque es nutritivo, suave y fácil de digerir.</span>
+        <div class="attributes">Atributos: Ingredientes frescos, textura cremosa y sabor a comida casera de siempre.</div>
+    </div>
+
+    <div class="menu-card">
+        <h4>Galletas de Avena, Manzana y Canela</h4>
+        <p>Snack nutritivo de textura suave (no dura), ideal para cualquier hora del día sin dañar la salud.</p>
+        <span class="benefit-tag">✓ Beneficio: Bienestar y confianza para personas con restricciones alimenticias o de masticación.</span>
+        <div class="attributes">Atributos: Sin azúcar añadida, textura suave y sabor natural de la manzana.</div>
+    </div>
+
+    <div class="btn-container" style="margin-top: 30px;">
+        <button class="btn-green-pill" style="background-color: var(--cafe-tradicional);" onclick="mostrarPresentacion()">Volver</button>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 El Sazón de Casa <br>
+    "Como en casa, cuidamos tu salud"
+</footer>
+
+<script>
+    function mostrarMenu() {
+        document.getElementById('pantalla-presentacion').classList.remove('active');
+        document.getElementById('pantalla-menu').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+    function mostrarPresentacion() {
+        document.getElementById('pantalla-menu').classList.remove('active');
+        document.getElementById('pantalla-presentacion').classList.add('active');
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
